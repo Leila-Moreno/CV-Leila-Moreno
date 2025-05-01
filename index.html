@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Premium - Leila Moreno</title>
+    <style>
+        :root {
+            --primary-color: #ff4d6d;
+            --primary-light: #ff7a94;
+            --primary-dark: #d13e5a;
+            --secondary-color: #ff7043;
+            --secondary-light: #ffa270;
+            --secondary-dark: #c63f17;
+            --neutral-dark: #37474f;
+            --neutral-light: #f5f5f5;
+            --neutral-mid: #90a4ae;
+            --success: #4caf50;
+            --shadow: rgba(0,0,0,0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', 'Montserrat', sans-serif;
+        }
+        
+        body {
+            color: var(--neutral-dark);
+            line-height: 1.6;
+            background: linear-gradient(135deg, #f6f8fb 0%, #e9ecf1 100%);
+            font-size: 16px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background-color: white;
+            box-shadow: 0 10px 30px var(--shadow);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .header {
+            position: relative;
+            padding: 40px 40px 25px;
+            background-color: white;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+        
+        .photo-container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .photo-frame {
+            width: 150px;
+            height: 150px;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(255, 77, 109, 0.3);
+            position: relative;
+        }
+        
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .header-content {
+            position: relative;
+        }
+        
+        .social-badges {
+            position: absolute;
+            top: -15px;
+            right: 0;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .social-badge {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .social-badge:nth-child(1) {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+        }
+        
+        .social-badge:nth-child(2) {
+            background: #25D366;
+        }
+        
+        .social-badge:nth-child(3) {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+        }
+        
+        .social-badge:nth-child(4) {
+            background: #0077B5;
+        }
+        
+        .name-title {
+            margin-bottom: 15px;
+        }
+        
+        .name {
+            font-size: 38px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: var(--neutral-dark);
+            margin-bottom: 5px;
+            line-height: 1.1;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .name::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+            border-radius: 10px;
+        }
+        
+        .profession {
+            font-size: 18px;
+            color: var(--primary-color);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .verified-badge {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--primary-light);
+            color: white;
+            padding: 3px 8px 3px 3px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            margin-left: 10px;
+        }
+        
+        .checkmark {
+            width: 18px;
+            height: 18px;
+            background-color: white;
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        
+        .tagline {
+            font-size: 16px;
+            color: var(--neutral-mid);
+            margin-bottom: 15px;
+            font-weight: 500;
+            font-style: italic;
+        }
+        
+        .contact-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            color: var(--neutral-dark);
+            gap: 8px;
+            font-size: 15px;
+        }
+        
+        .contact-icon {
+            color: var(--primary-color);
+            font-size: 18px;
+            min-width: 18px;
+            text-align: center;
+        }
+        
+        .external-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 12px;
+        }
+        
+        .ext-link {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .portfolio-link {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+        }
+        
+        .linkedin-link {
+            background: linear-gradient(135deg, #0077B5, #00669e);
+        }
+
+        .instagram-link {
+            background: linear-gradient(135deg, #833AB4, #FD1D1D);
+        }
+        
+        .ext-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .skills-bar {
+            padding: 15px 40px;
+            background: linear-gradient(90deg, var(--primary-light), var(--secondary-light));
+            display: flex;
+            justify-content: space-between;
+            color: white;
+            font-weight: 600;
+            position: relative;
+        }
+        
+        .skill-pill {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .main {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 35px;
+        }
+        
+        .section {
+            position: relative;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .section-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            border-radius: 10px;
+            font-size: 20px;
+            box-shadow: 0 4px 10px rgba(255, 77, 109, 0.3);
+        }
+        
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--neutral-dark);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            border-radius: 10px;
+        }
+        
+        .profile-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--neutral-dark);
+            background-color: var(--neutral-light);
+            padding: 25px;
+            border-radius: 10px;
+            position: relative;
+        }
+        
+        .profile-text::before {
+            content: "\201C";
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            font-size: 60px;
+            color: var(--primary-light);
+            opacity: 0.3;
+            font-family: serif;
+            line-height: 0.5;
+        }
+        
+        .experience-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+        
+        .experience-item {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .experience-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .experience-header {
+            padding: 20px 25px;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fafafa;
+        }
+        
+        .job-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+        }
+        
+        .company {
+            font-weight: 500;
+            color: var(--secondary-color);
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .time-location {
+            text-align: right;
+            color: var(--neutral-mid);
+        }
+        
+        .period {
+            font-weight: 600;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .location {
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 5px;
+        }
+        
+        .experience-content {
+            padding: 25px;
+        }
+        
+        .metrics-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .metric-card {
+            background: linear-gradient(135deg, #f5f7fa, #e4e8f0);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .metric-value {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .metric-label {
+            font-size: 13px;
+            color: var(--neutral-mid);
+            font-weight: 500;
+        }
+        
+        .achievement-bar {
+            background-color: #f0f4f8;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-left: 4px solid var(--success);
+        }
+        
+        .achievement-icon {
+            color: var(--success);
+            font-size: 20px;
+        }
+        
+        .achievement-text {
+            font-weight: 600;
+            color: var(--neutral-dark);
+            font-size: 15px;
+        }
+        
+        .responsibilities {
+            margin-top: 20px;
+        }
+        
+        .responsibility-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--neutral-dark);
+            margin-bottom: 15px;
+        }
+        
+        .responsibility-list {
+            list-style-type: none;
+        }
+        
+        .responsibility-item {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+        
+        .responsibility-item::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: white;
+            background-color: var(--secondary-color);
+            width: 20px;
+            height: 20px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        
+        .platforms-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .platform-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+            padding: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .platform-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .platform-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-color), var(--primary-light));
+        }
+        
+        .platform-icon {
+            font-size: 30px;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .platform-name {
+            font-weight: 700;
+            font-size: 17px;
+            color: var(--neutral-dark);
+            margin-bottom: 5px;
+        }
+        
+        .platform-skills {
+            font-size: 14px;
+            color: var(--neutral-mid);
+        }
+        
+        .education-item {
+            margin-bottom: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .education-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .education-item::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--secondary-color), var(--secondary-light));
+        }
+        
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .degree {
+            font-weight: 700;
+            font-size: 17px;
+            color: var(--neutral-dark);
+        }
+        
+        .institution {
+            font-weight: 600;
+            color: var(--secondary-color);
+            font-size: 15px;
+            margin-top: 3px;
+        }
+        
+        .edu-period {
+            font-weight: 500;
+            color: var(--neutral-mid);
+            font-size: 14px;
+            text-align: right;
+        }
+        
+        .education-content {
+            font-size: 14px;
+            color: var(--neutral-mid);
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed #eee;
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+        
+        .skills-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .skills-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .skills-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+        }
+        
+        .skills-title {
+            font-weight: 700;
+            font-size: 17px;
+            color: var(--neutral-dark);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #eee;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .skills-title-icon {
+            color: var(--primary-color);
+        }
+        
+        .skills-list {
+            list-style: none;
+        }
+        
+        .skill-item {
+            position: relative;
+            padding-left: 22px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: var(--neutral-dark);
+        }
+        
+        .skill-item::before {
+            content: "•";
+            position: absolute;
+            left: 5px;
+            color: var(--primary-color);
+            font-size: 22px;
+            line-height: 0.5;
+        }
+        
+        .footer {
+            padding: 25px 40px;
+            background-color: var(--neutral-light);
+            text-align: center;
+            color: var(--neutral-mid);
+            font-size: 14px;
+            border-top: 1px solid #eee;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 0;
+                border-radius: 0;
+            }
+            
+            .header {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 20px;
+                padding: 30px 20px 20px;
+            }
+            
+            .photo-container {
+                margin: 0 auto;
+            }
+            
+            .social-badges {
+                position: relative;
+                top: 0;
+                right: 0;
+                justify-content: center;
+                margin-top: 15px;
+            }
+            
+            .name::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .contact-bar {
+                justify-content: center;
+            }
+            
+            .external-links {
+                justify-content: center;
+            }
+            
+            .skills-bar {
+                padding: 15px 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            
+            .main {
+                padding: 20px;
+            }
+            
+            .metrics-cards, .platforms-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="photo-container">
+                <div class="photo-frame">
+                    <img src="img/leila-perfil.jpg" alt="Leila Moreno">
+                </div>
+            </div>
+            
+            <div class="header-content">
+                <div class="social-badges">
+                    <div class="social-badge">📸</div>
+                    <div class="social-badge">💬</div>
+                    <div class="social-badge">📱</div>
+                    <div class="social-badge">💼</div>
+                </div>
+                
+                <div class="name-title">
+                    <div class="name">Leila Moreno</div>
+                    <div class="profession">
+                        Community Manager & Content Creator
+                        <span class="verified-badge"><span class="checkmark">✓</span>Digital Specialist</span>
+                    </div>
+                </div>
+                
+                <div class="tagline">Conectando marcas con audiencias a través de contenido estratégico y creativo</div>
+                
+                <div class="contact-bar">
+                    <div class="contact-item">
+                        <div class="contact-icon">✉</div>
+                        <div>leilaelianamoreno@gmail.com</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div>+54 11 3848 1529</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>Manuel Alberti, Pilar, Buenos Aires</div>
+                    </div>
+                </div>
+                
+                <div class="external-links">
+                    <a href="https://leila-moreno.github.io/portfolio/" class="ext-link portfolio-link" target="_blank">
+                        <span>Portfolio</span>
+                        <span>→</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/leila-moreno-284b15356/" class="ext-link linkedin-link" target="_blank">
+                        <span>LinkedIn</span>
+                        <span>→</span>
+                    </a>
+                    <a href="https://www.instagram.com/snap.lycm?igsh=MXZqZzNheGdndjBibA==" class="ext-link instagram-link" target="_blank">
+                        <span>Instagram</span>
+                        <span>→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="skills-bar">
+            <div class="skill-pill">📊 Analítica Digital</div>
+            <div class="skill-pill">📷 Contenido Visual</div>
+            <div class="skill-pill">💡 Estrategia Social</div>
+            <div class="skill-pill">🎯 Conversión</div>
+            <div class="skill-pill">🛠️ Growth Hacking</div>
+        </div>
+        
+        <div class="main">
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">👋</div>
+                    <div class="section-title">SOBRE MÍ</div>
+                </div>
+                <div class="profile-text">
+                    <p>Community Manager con más de 3 años de experiencia gestionando redes sociales para marcas del sector retail. Especializada en crear estrategias de contenido que incrementan engagement y conversiones, con un historial probado de crecimiento en métricas clave. Mi formación en producción audiovisual me permite crear contenido multimedia de alta calidad adaptado a cada plataforma. Ofrezco una combinación de creatividad, análisis de datos y planificación estratégica para conectar efectivamente marcas con sus audiencias.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">💼</div>
+                    <div class="section-title">EXPERIENCIA PROFESIONAL</div>
+                </div>
+                <div class="experience-grid">
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <div class="job-title">COMMUNITY MANAGER</div>
+                                <div class="company">Papelera Villa Rosa</div>
+                            </div>
+                            <div class="time-location">
+                                <div class="period">📅 Julio 2021 - Marzo 2025</div>
+                                <div class="location">📍 Villa Rosa, Buenos Aires</div>
+                            </div>
+                        </div>
+                        
+                        <div class="experience-content">
+                            <div class="metrics-cards">
+                                <div class="metric-card">
+                                    <div class="metric-value">5.2K</div>
+                                    <div class="metric-label">Seguidores en Instagram</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value">45%</div>
+                                    <div class="metric-label">Aumento en engagement</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value">30%</div>
+                                    <div class="metric-label">Incremento en conversiones</div>
+                                </div>
+                            </div>
+                            
+                            <div class="achievement-bar">
+                                <div class="achievement-icon">🏆</div>
+                                <div class="achievement-text">Logré aumentar las ventas digitales en un 25% mediante campañas segmentadas y contenido estratégico</div>
+                            </div>
+                            
+                            <div class="responsibilities">
+                                <div class="responsibility-title">Responsabilidades Clave:</div>
+                                <ul class="responsibility-list">
+                                    <li class="responsibility-item"><strong>Estrategia digital:</strong> Desarrollé e implementé la estrategia completa de redes sociales, creando un calendario editorial estructurado que aumentó la visibilidad de la marca.</li>
+                                    <li class="responsibility-item"><strong>Gestión de comunidad:</strong> Administré las interacciones diarias con usuarios, respondiendo a consultas y comentarios en menos de 2 horas, mejorando la satisfacción del cliente en un 60%.</li>
+                                    <li class="responsibility-item"><strong>Creación de contenido:</strong> Produje material gráfico y audiovisual original utilizando Canva, CapCut y Filmora X, manteniendo coherencia con la identidad de marca.</li>
+                                    <li class="responsibility-item"><strong>WhatsApp Business:</strong> Optimicé el catálogo digital y el sistema de atención al cliente, implementando respuestas automáticas y flujos de conversación efectivos.</li>
+                                    <li class="responsibility-item"><strong>Análisis de métricas:</strong> Monitoreé KPIs clave usando Instagram Insights y herramientas analíticas, presentando informes mensuales con recomendaciones estratégicas.</li>
+                                    <li class="responsibility-item"><strong>Campañas promocionales:</strong> Diseñé y ejecuté campañas estacionales que incrementaron la visibilidad del catálogo y generaron aumentos de ventas con ROI positivo.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <div class="job-title">COMMUNITY MANAGER</div>
+                                <div class="company">Iglesia El Sembrador Delviso (Voluntariado)</div>
+                            </div>
+                            <div class="time-location">
+                                <div class="period">📅 Enero 2025 - Actualidad</div>
+                                <div class="location">📍 Delviso, Buenos Aires</div>
+                            </div>
+                        </div>
+                        
+                        <div class="experience-content">
+                            <div class="metrics-cards">
+                                <div class="metric-card">
+                                    <div class="metric-value">2.8K</div>
+                                    <div class="metric-label">Seguidores en Instagram</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value">65%</div>
+                                    <div class="metric-label">Aumento en visualizaciones</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value">50%</div>
+                                    <div class="metric-value">50%</div>
+                                    <div class="metric-label">Incremento en participación</div>
+                                </div>
+                            </div>
+                            
+                            <div class="responsibilities">
+                                <div class="responsibility-title">Responsabilidades Clave:</div>
+                                <ul class="responsibility-list">
+                                    <li class="responsibility-item"><strong>Estrategia de contenido:</strong> Creé un plan integral de contenido para Instagram, estableciendo lineamientos de comunicación que fortalecieron la identidad digital del grupo juvenil.</li>
+                                    <li class="responsibility-item"><strong>Producción audiovisual:</strong> Desarrollo y edito Reels semanales que documentan actividades y eventos, aumentando la visibilidad y el alcance orgánico.</li>
+                                    <li class="responsibility-item"><strong>Engagement:</strong> Diseño dinámicas interactivas para historias que han incrementado la participación de la audiencia, generando comunidad activa.</li>
+                                    <li class="responsibility-item"><strong>Calendario editorial:</strong> Implementé un sistema de planificación de contenido coordinado con el equipo de liderazgo, asegurando publicaciones consistentes.</li>
+                                    <li class="responsibility-item"><strong>Diseño gráfico:</strong> Creo piezas gráficas para comunicación de eventos, manteniendo coherencia visual y reforzando el reconocimiento de marca.</li>
+                                    <li class="responsibility-item"><strong>Growth hacking:</strong> Aplico técnicas de crecimiento orgánico que han aumentado los seguidores sin inversión en publicidad.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">📱</div>
+                    <div class="section-title">PLATAFORMAS Y HERRAMIENTAS</div>
+                </div>
+                
+                <div class="platforms-grid">
+                    <div class="platform-card">
+                        <div class="platform-icon">📸</div>
+                        <div class="platform-name">Instagram</div>
+                        <div class="platform-skills">Feed, Stories, Reels, IGTV, Business Tools, Análisis de audiencia</div>
+                    </div>
+                    <div class="platform-card">
+                        <div class="platform-icon">💬</div>
+                        <div class="platform-name">WhatsApp Business</div>
+                        <div class="platform-skills">Catálogo, Etiquetas, Automatización, Estadísticas, CRM</div>
+                    </div>
+                    <div class="platform-card">
+                        <div class="platform-icon">🎨</div>
+                        <div class="platform-name">Diseño</div>
+                        <div class="platform-skills">Canva Pro, CapCut, Filmora X, Adobe Spark</div>
+                    </div>
+                    <div class="platform-card">
+                        <div class="platform-icon">📊</div>
+                        <div class="platform-name">Analítica</div>
+                        <div class="platform-skills">Instagram Insights, Excel, Métricas, Informes</div>
+                    </div>
+                    <div class="platform-card">
+                        <div class="platform-icon">🎬</div>
+                        <div class="platform-name">Producción</div>
+                        <div class="platform-skills">OBS Studio, Livestreaming, Edición de video</div>
+                    </div>
+                    <div class="platform-card">
+                        <div class="platform-icon">📝</div>
+                        <div class="platform-name">Planificación</div>
+                        <div class="platform-skills">Calendarios editoriales, Estrategia de contenido</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">🎓</div>
+                    <div class="section-title">FORMACIÓN ACADÉMICA</div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="education-header">
+                        <div>
+                            <div class="degree">LICENCIATURA EN PRODUCCIÓN Y GESTIÓN AUDIOVISUAL</div>
+                            <div class="institution">Universidad Nacional de José C. Paz</div>
+                        </div>
+                        <div class="edu-period">En curso</div>
+                    </div>
+                    <div class="education-content">
+                        <p>Formación en narrativa audiovisual, producción multimedia, gestión de proyectos creativos y estrategias de comunicación digital. La carrera complementa mi trabajo como Community Manager, aportando fundamentos teóricos y técnicos para la creación de contenido de calidad.</p>
+                    </div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="education-header">
+                        <div>
+                            <div class="degree">CERTIFICACIÓN PROFESIONAL EN COMMUNITY MANAGEMENT</div>
+                            <div class="institution">Escuela Digital CoderHouse</div>
+                        </div>
+                        <div class="edu-period">Marzo 2025</div>
+                    </div>
+                    <div class="education-content">
+                        <p>Programa especializado que abarca gestión estratégica de comunidades digitales, marketing en redes sociales, analítica web, planificación de contenido y optimización de conversiones. Proyecto final con cliente real obteniendo calificación sobresaliente.</p>
+                    </div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="education-header">
+                        <div>
+                            <div class="degree">BACHILLERATO EN GESTIÓN Y ADMINISTRACIÓN</div>
+                            <div class="institution">Escuela Secundaria N°1, Manuel Alberti</div>
+                        </div>
+                        <div class="edu-period">Diciembre 2017</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">💪</div>
+                    <div class="section-title">COMPETENCIAS Y HABILIDADES</div>
+                </div>
+                
+                <div class="skills-container">
+                    <div class="skills-card">
+                        <div class="skills-title">
+                            <span class="skills-title-icon">👥</span>
+                            Gestión de Comunidades
+                        </div>
+                        <ul class="skills-list">
+                            <li class="skill-item">Estrategia de comunicación digital</li>
+                            <li class="skill-item">Moderación de comunidades online</li>
+                            <li class="skill-item">Atención al cliente en redes sociales</li>
+                            <li class="skill-item">Gestión de crisis y comentarios negativos</li>
+                            <li class="skill-item">Fomento de interacción y fidelización</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skills-card">
+                        <div class="skills-title">
+                            <span class="skills-title-icon">🎨</span>
+                            Creación de Contenido
+                        </div>
+                        <ul class="skills-list">
+                            <li class="skill-item">Diseño de contenido adaptado a cada plataforma</li>
+                            <li class="skill-item">Producción y edición de videos para redes</li>
+                            <li class="skill-item">Fotografía de productos y storytelling visual</li>
+                            <li class="skill-item">Copywriting para redes sociales</li>
+                            <li class="skill-item">Creación de campañas temáticas y estacionales</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skills-card">
+                        <div class="skills-title">
+                            <span class="skills-title-icon">📊</span>
+                            Estrategia y Análisis
+                        </div>
+                        <ul class="skills-list">
+                            <li class="skill-item">Planificación de calendarios editoriales</li>
+                            <li class="skill-item">Análisis de métricas y optimización de contenido</li>
+                            <li class="skill-item">Benchmarking y análisis de competencia</li>
+                            <li class="skill-item">Identificación de tendencias y oportunidades</li>
+                            <li class="skill-item">Elaboración de informes de rendimiento</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skills-card">
+                        <div class="skills-title">
+                            <span class="skills-title-icon">🧠</span>
+                            Competencias Personales
+                        </div>
+                        <ul class="skills-list">
+                            <li class="skill-item">Creatividad e innovación constante</li>
+                            <li class="skill-item">Resolución efectiva de problemas</li>
+                            <li class="skill-item">Organización y gestión del tiempo</li>
+                            <li class="skill-item">Adaptabilidad a cambios de algoritmos</li>
+                            <li class="skill-item">Trabajo colaborativo con equipos multidisciplinarios</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Curriculum Vitae - Leila Moreno - Actualizado: Abril 2025</p>
+        </div>
+    </div>
+</body>
+</html>
